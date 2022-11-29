@@ -8,6 +8,9 @@
     --secondary: white;
 }
 
+.card{
+    margin: 20px;
+}
 .card-body {
     background-color: var(--secondary);
     color: var(--primary);
