@@ -39,3 +39,34 @@ const generateIntern = function (intern) {
     </div>
     `;
 };
+
+generateHTML = (data) => {
+ 
+    cardArray = []; 
+
+    for (let i = 0; i < data.length; i++) {
+        const employee = data[i];
+        const role = employee.getRole(); 
+
+        if (role === 'Manager') {
+            const managerCard = generateManager(employee);
+            cardArray.push(managerCard);
+        }
+
+        if (role === 'Engineer') {
+            const engineerCard = generateEngineer(employee);
+            cardArray.push(engineerCard);
+        }
+ 
+        if (role === 'Intern') {
+            const internCard = generateIntern(employee);
+            cardArray.push(internCard);
+        }
+        
+    }
+
+    const employeeCards = cardArray.join('')
+    const generateTeam = generateTeamPage(employeeCards); 
+    return generateTeam;
+}
+
